@@ -498,7 +498,7 @@
             }
           }
         },
-        "x-accepts" : "text/json"
+        "x-accepts" : "application/json"
       }
     },
     "/module/{connectionId}/roundtripMethodCall/{methodName}" : {
