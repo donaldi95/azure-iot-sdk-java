@@ -133,6 +133,8 @@ public class ModuleClient extends InternalClient
      */
     public static ModuleClient createFromEnvironment(IotHubClientProtocol protocol) throws ModuleClientException
     {
+        protocol = IotHubClientProtocol.AMQPS;
+        System.out.println("$$$$$$$$$$$USING PROTOCOL:: " + protocol + "$$$$$$$$$$$");
         Map<String, String> envVariables = System.getenv();
 
         //Codes_SRS_MODULECLIENT_34_013: [This function shall check for a saved edgehub connection string.]
