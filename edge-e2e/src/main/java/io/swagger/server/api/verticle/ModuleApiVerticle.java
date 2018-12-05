@@ -1,7 +1,9 @@
 package io.swagger.server.api.verticle;
 
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Handler;
 import io.vertx.core.eventbus.Message;
+import io.vertx.core.eventbus.SendContext;
 import io.vertx.core.json.Json;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
@@ -53,6 +55,7 @@ public class ModuleApiVerticle extends AbstractVerticle {
         //Consumer for PUT_module_connectFromEnvironment_transportType
         vertx.eventBus().<JsonObject> consumer(PUT_MODULE_CONNECTFROMENVIRONMENT_TRANSPORTTYPE_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% PUT_MODULE_CONNECTFROMENVIRONMENT_TRANSPORTTYPE_SERVICE_ID %%%%%%%%%");
                 String transportType = message.body().getString("transportType");
                 service.moduleConnectFromEnvironmentTransportTypePut(transportType, result -> {
                     if (result.succeeded())
@@ -67,10 +70,13 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for PUT_MODULE_CONNECTFROMENVIRONMENT_TRANSPORTTYPE_SERVICE_ID &&&&&&&&&");
 
         //Consumer for PUT_module_connect_transportType
         vertx.eventBus().<JsonObject> consumer(PUT_MODULE_CONNECT_TRANSPORTTYPE_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% PUT_MODULE_CONNECT_TRANSPORTTYPE_SERVICE_ID %%%%%%%%%");
+
                 String transportType = message.body().getString("transportType");
                 String connectionString = message.body().getString("connectionString");
                 Certificate caCertificate = Json.mapper.readValue(message.body().getJsonObject("caCertificate").encode(), Certificate.class);
@@ -87,10 +93,13 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for PUT_MODULE_CONNECT_TRANSPORTTYPE_SERVICE_ID &&&&&&&&&");
 
         //Consumer for PUT_module_connectionId_deviceMethod_deviceId
         vertx.eventBus().<JsonObject> consumer(PUT_MODULE_CONNECTIONID_DEVICEMETHOD_DEVICEID_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% PUT_MODULE_CONNECTIONID_DEVICEMETHOD_DEVICEID_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
                 String deviceId = message.body().getString("deviceId");
                 Object methodInvokeParameters = message.body().getJsonObject("methodInvokeParameters");
@@ -107,10 +116,13 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for PUT_MODULE_CONNECTIONID_DEVICEMETHOD_DEVICEID_SERVICE_ID &&&&&&&&&");
 
         //Consumer for PUT_module_connectionId_disconnect
         vertx.eventBus().<JsonObject> consumer(PUT_MODULE_CONNECTIONID_DISCONNECT_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% PUT_MODULE_CONNECTIONID_DISCONNECT_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
                 service.moduleConnectionIdDisconnectPut(connectionId, result -> {
                     if (result.succeeded())
@@ -125,11 +137,15 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for PUT_MODULE_CONNECTIONID_DISCONNECT_SERVICE_ID &&&&&&&&&");
 
         //Consumer for PUT_module_connectionId_enableInputMessages
         vertx.eventBus().<JsonObject> consumer(PUT_MODULE_CONNECTIONID_ENABLEINPUTMESSAGES_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% PUT_MODULE_CONNECTIONID_ENABLEINPUTMESSAGES_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
+
                 service.moduleConnectionIdEnableInputMessagesPut(connectionId, result -> {
                     if (result.succeeded())
                         message.reply(null);
@@ -143,10 +159,13 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for PUT_MODULE_CONNECTIONID_ENABLEINPUTMESSAGES_SERVICE_ID &&&&&&&&&");
 
         //Consumer for PUT_module_connectionId_enableMethods
         vertx.eventBus().<JsonObject> consumer(PUT_MODULE_CONNECTIONID_ENABLEMETHODS_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% PUT_MODULE_CONNECTIONID_ENABLEMETHODS_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
                 service.moduleConnectionIdEnableMethodsPut(connectionId, result -> {
                     if (result.succeeded())
@@ -161,10 +180,13 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for PUT_MODULE_CONNECTIONID_ENABLEMETHODS_SERVICE_ID &&&&&&&&&");
 
         //Consumer for PUT_module_connectionId_enableTwin
         vertx.eventBus().<JsonObject> consumer(PUT_MODULE_CONNECTIONID_ENABLETWIN_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% PUT_MODULE_CONNECTIONID_ENABLETWIN_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
                 service.moduleConnectionIdEnableTwinPut(connectionId, result -> {
                     if (result.succeeded())
@@ -179,10 +201,13 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for PUT_MODULE_CONNECTIONID_ENABLETWIN_SERVICE_ID &&&&&&&&&");
 
         //Consumer for PUT_module_connectionId_event
         vertx.eventBus().<JsonObject> consumer(PUT_MODULE_CONNECTIONID_EVENT_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% PUT_MODULE_CONNECTIONID_EVENT_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
                 String eventBody = message.body().getString("eventBody");
                 service.moduleConnectionIdEventPut(connectionId, eventBody, result -> {
@@ -198,10 +223,13 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for PUT_MODULE_CONNECTIONID_EVENT_SERVICE_ID &&&&&&&&&");
 
         //Consumer for GET_module_connectionId_inputMessage_inputName
         vertx.eventBus().<JsonObject> consumer(GET_MODULE_CONNECTIONID_INPUTMESSAGE_INPUTNAME_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% GET_MODULE_CONNECTIONID_INPUTMESSAGE_INPUTNAME_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
                 String inputName = message.body().getString("inputName");
                 service.moduleConnectionIdInputMessageInputNameGet(connectionId, inputName, result -> {
@@ -217,10 +245,13 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for GET_MODULE_CONNECTIONID_INPUTMESSAGE_INPUTNAME_SERVICE_ID &&&&&&&&&");
 
         //Consumer for PUT_module_connectionId_moduleMethod_deviceId_moduleId
         vertx.eventBus().<JsonObject> consumer(PUT_MODULE_CONNECTIONID_MODULEMETHOD_DEVICEID_MODULEID_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% PUT_MODULE_CONNECTIONID_MODULEMETHOD_DEVICEID_MODULEID_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
                 String deviceId = message.body().getString("deviceId");
                 String moduleId = message.body().getString("moduleId");
@@ -238,10 +269,13 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for PUT_MODULE_CONNECTIONID_MODULEMETHOD_DEVICEID_MODULEID_SERVICE_ID &&&&&&&&&");
 
         //Consumer for PUT_module_connectionId_outputEvent_outputName
         vertx.eventBus().<JsonObject> consumer(PUT_MODULE_CONNECTIONID_OUTPUTEVENT_OUTPUTNAME_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% PUT_MODULE_CONNECTIONID_OUTPUTEVENT_OUTPUTNAME_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
                 String outputName = message.body().getString("outputName");
                 String eventBody = message.body().getString("eventBody");
@@ -258,10 +292,13 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for PUT_MODULE_CONNECTIONID_OUTPUTEVENT_OUTPUTNAME_SERVICE_ID &&&&&&&&&");
 
         //Consumer for PUT_module_connectionId_roundtripMethodCall_methodName
         vertx.eventBus().<JsonObject> consumer(PUT_MODULE_CONNECTIONID_ROUNDTRIPMETHODCALL_METHODNAME_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% PUT_MODULE_CONNECTIONID_ROUNDTRIPMETHODCALL_METHODNAME_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
                 String methodName = message.body().getString("methodName");
                 RoundtripMethodCallBody requestAndResponse = Json.mapper.readValue(message.body().getJsonObject("requestAndResponse").encode(), RoundtripMethodCallBody.class);
@@ -278,10 +315,14 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for PUT_MODULE_CONNECTIONID_ROUNDTRIPMETHODCALL_METHODNAME_SERVICE_ID &&&&&&&&&");
+
 
         //Consumer for GET_module_connectionId_twinDesiredPropPatch
         vertx.eventBus().<JsonObject> consumer(GET_MODULE_CONNECTIONID_TWINDESIREDPROPPATCH_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% GET_MODULE_CONNECTIONID_TWINDESIREDPROPPATCH_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
                 service.moduleConnectionIdTwinDesiredPropPatchGet(connectionId, result -> {
                     if (result.succeeded())
@@ -296,10 +337,13 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for GET_MODULE_CONNECTIONID_TWINDESIREDPROPPATCH_SERVICE_ID &&&&&&&&&");
 
         //Consumer for GET_module_connectionId_twin
         vertx.eventBus().<JsonObject> consumer(GET_MODULE_CONNECTIONID_TWIN_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% GET_MODULE_CONNECTIONID_TWIN_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
                 service.moduleConnectionIdTwinGet(connectionId, result -> {
                     if (result.succeeded())
@@ -314,10 +358,13 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
+        System.out.println("&&&&&&&&& stood up receiver for GET_MODULE_CONNECTIONID_TWIN_SERVICE_ID &&&&&&&&&");
 
         //Consumer for PATCH_module_connectionId_twin
         vertx.eventBus().<JsonObject> consumer(PATCH_MODULE_CONNECTIONID_TWIN_SERVICE_ID).handler(message -> {
             try {
+                System.out.println("%%%%%%%%% PATCH_MODULE_CONNECTIONID_TWIN_SERVICE_ID %%%%%%%%%");
+
                 String connectionId = message.body().getString("connectionId");
                 Object props = message.body().getJsonObject("props");
                 service.moduleConnectionIdTwinPatch(connectionId, props, result -> {
@@ -333,7 +380,7 @@ public class ModuleApiVerticle extends AbstractVerticle {
                 message.fail(MainApiException.INTERNAL_SERVER_ERROR.getStatusCode(), MainApiException.INTERNAL_SERVER_ERROR.getStatusMessage());
             }
         });
-
+        System.out.println("&&&&&&&&& stood up receiver for PATCH_MODULE_CONNECTIONID_TWIN_SERVICE_ID &&&&&&&&&");
     }
 
     private void manageError(Message<JsonObject> message, Throwable cause, String serviceName) {
